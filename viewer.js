@@ -795,12 +795,12 @@ function Viewer() {
 				const size = box.getSize(new THREE.Vector3()).length();
 				const center = box.getCenter(new THREE.Vector3());
 
-				controller.reset();
+	controller.reset();
 
 				object.position.x += (object.position.x - center.x);
 				object.position.y += (object.position.y - center.y);
 				object.position.z += (object.position.z - center.z);
-				controller.maxDistance = size * 10;
+				controller.maxDistance = size * 20;
 				camera.near = size / 100;
 				camera.far = size * 100;
 				camera.updateProjectionMatrix();
@@ -809,6 +809,7 @@ function Viewer() {
 				camera.position.x += size / 2.0;
 				camera.position.y += size / 5.0;
 				camera.position.z += size / 2.0;
+
 
 				directionalLight.position.setScalar(size);
 
@@ -988,35 +989,79 @@ function Viewer() {
 	camera.lookAt(scene.position);
 	controller.update();
 	controller.saveState();
+
+
+
+
+
+
+
+
+
+
+
+
 	
-	let ambientLight = new THREE.AmbientLight();
+	
+
+
+
+
+let ambientLight = new THREE.AmbientLight();
 	ambientLight.intensity = 1;
 	scene.add(ambientLight);
 
 	let directionalLight = new THREE.DirectionalLight();
-	directionalLight.position.set(200, 200, 200)
-	directionalLight.intensity = 0.5;
+	directionalLight.position.set(500, 500, 500)
+	directionalLight.intensity = 1;
 	scene.add(directionalLight);
+
+
+
 	
-	/*let light1 = new THREE.PointLight(0xffffff);
-	light1.position.set(100, 100, 100);
+	let light1 = new THREE.PointLight(0xffffff);
+	light1.position.set(600, 600, 600);
 	scene.add(light1);
 	
 	let light2 = new THREE.PointLight(0xffffff);
-	light2.position.set(100, 100, -100);
+	light2.position.set(600, 600, -600);
 	scene.add(light2);
 	
 	let light3 = new THREE.PointLight(0xffffff);
-	light3.position.set(-100, 100, 100);
+	light3.position.set(-600, 600, 600);
 	scene.add(light3);
 	
 	let light4 = new THREE.PointLight(0xffffff);
-	light4.position.set(-100, 100, -100);
+	light4.position.set(-600, 600, -600);
 	scene.add(light4);
 	
-	light1.intensity = light2.intensity = light3.intensity = light4.intensity = 0.3;*/
+
+	
+light1.intensity =0,1
+
+ light2.intensity =0,1 
+light3.intensity =0,1 
+light4.intensity = 2;
+
 	
 	let stop = false;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	function renderAll() {
 
